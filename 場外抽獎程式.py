@@ -11,9 +11,10 @@ while True:
 		"""
 		使用線上編譯的 可以把下面那行的# 去掉
 		並填入網址 (online gdb input好像不給貼)
+		執行時直接按 Enter 即可
 		"""
-		# URL = "網址打在這邊"
-		
+		# URL = "網址打在引號裡面"
+
 		# 修改網址 以利換頁
 		index = URL.find("page=")
 		if index == -1:
@@ -84,6 +85,10 @@ for page in range(2, Last_Page + 1):
 # 整理資料
 Authors = [f + '-' + name for name, f in Authors_dict.items()]
 
+# 用線上編譯器執行 順序會是亂的 這邊依據樓層做排序
+# 不過字典本身應該就是無序的吧 = =
+Authors.sort(key=lambda s: int(s.split()[0]))
+
 # 印出名單
 print("以下為抽獎名單:")
 for a in Authors:
@@ -107,7 +112,8 @@ def shuffle_and_save(n):
 	with open("抽獎名單.txt", 'r+', encoding='UTF-8') as file:
 		file.seek(pointer)
 		file.write("\n中獎者:\n")
-		for winner in Authors[:n]:
+		# 取洗亂後的前n位 作為中獎者
+		for winner in sorted(Authors[:n], key=lambda s: int(s.split()[0])):
 			print(winner)
 			file.write(winner + '\n')
 		# 之前的得獎者的資料可能還在 要清除
