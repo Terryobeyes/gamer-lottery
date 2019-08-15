@@ -22,8 +22,7 @@ https://www.onlinegdb.com/online_python_compiler#
 但輸入的部分 好像不能用貼上的
 
 所以要在程式碼那邊改
-</br></br>
-</br></br>
+</br>
 
 執行後會在exe檔目錄下產生
 
@@ -42,7 +41,8 @@ https://www.onlinegdb.com/online_python_compiler#
 (1000頁不知道要跑多久 沒試過= =)
 </br>
 
-題外話:</br>
+題外話:
+</br></br>
 本來要寫多執行序 但requests好像是非線程安全的
 
 線程好像會被鎖起來
