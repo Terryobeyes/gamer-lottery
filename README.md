@@ -18,6 +18,7 @@ https://www.onlinegdb.com/online_python_compiler#
 裡面會有抽獎名單 最後會有得獎者
 
 注意事項:
+
 1.抽獎人不含樓主(即使樓主在其他樓回覆)
 
 2.被摺疊的抓得到
@@ -31,3 +32,7 @@ https://www.onlinegdb.com/online_python_compiler#
 本來要寫多執行序 但requests好像是非線程安全的
 線程好像會被鎖起來
 開執行序還比直接跑慢
+
+另外 我是學店剛升大二的菜雞
+主要是寫python 也不太會用這個github
+大家多多指教啦!
