@@ -9,7 +9,7 @@
 造成抽獎人公平抽獎的困難
 
 看到好像沒什麼人寫 就自己來寫
-
+＜/br＞
 
 大家可以下載exe檔 或
 
@@ -22,10 +22,12 @@ https://www.onlinegdb.com/online_python_compiler#
 但輸入的部分 好像不能用貼上的
 
 所以要在程式碼那邊改
-
+＜/br＞
 
 執行後會在exe檔目錄下產生
+
 抽獎名單.txt 的檔案
+
 裡面會有抽獎名單 最後會有得獎者
 
 注意事項:
@@ -38,7 +40,7 @@ https://www.onlinegdb.com/online_python_compiler#
 3.超過1000頁的話 請把程式碼裡的1000 改大
 
 (1000頁不知道要跑多久 沒試過= =)
-
+＜/br＞
 
 題外話:
 本來要寫多執行序 但requests好像是非線程安全的
