@@ -11,6 +11,7 @@
 https://www.onlinegdb.com/online_python_compiler#</br>
 但輸入的部分 好像不能用貼上的</br>
 所以要在程式碼那邊改</br>
+程式碼前面幾行有說明</br>
 </br>
 執行後會在exe檔目錄下產生</br>
 抽獎名單.txt 的檔案</br>
