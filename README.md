@@ -40,9 +40,10 @@ https://www.onlinegdb.com/online_python_compiler#
 
 (1000頁不知道要跑多久 沒試過= =)
 </br>
-
+</br>
+</br>
 題外話:
-</br></br>
+
 本來要寫多執行序 但requests好像是非線程安全的
 
 線程好像會被鎖起來
