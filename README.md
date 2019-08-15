@@ -32,3 +32,4 @@ https://www.onlinegdb.com/online_python_compiler#</br>
 </br>
 另外 我是學店剛升大二的菜雞</br>
 主要是寫python 也不太會用這個github</br>
+我這篇文 每行後面都在＜/br＞ = =
