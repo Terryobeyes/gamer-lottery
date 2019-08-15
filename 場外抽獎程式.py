@@ -4,14 +4,20 @@ import requests
 from bs4 import BeautifulSoup
 from random import shuffle
 
+""" 線上編譯器網址
+https://www.onlinegdb.com/online_python_compiler#
+將網站上面的程式碼全選 貼上這個程式碼
+並修改22行 將註解刪除 並貼上網址
+"""
+
 # 輸入網址
 while True:
 	try:
 		URL = input("請輸入網址:")
 		"""
 		使用線上編譯的 可以把下面那行的# 去掉
-		並填入網址 (online gdb input好像不給貼)
-		執行時直接按 Enter 即可
+		也就是把游標放在U左邊 按退格鍵兩下
+		並填入網址 執行時直接按 Enter 即可
 		"""
 		# URL = "網址打在引號裡面"
 
