@@ -72,9 +72,6 @@ for p in range(len(home_authors) // 3):
 	if a not in Authors_dict:
 		Authors_dict[a] = f
 
-# 剔除樓主
-Authors_dict.pop(Host)
-
 # 從第二頁開始 一頁一頁跑
 for page in range(2, Last_Page + 1):
 	url = URL[:38] + str(page) + URL[38:]
@@ -87,6 +84,9 @@ for page in range(2, Last_Page + 1):
 		# 重複的不刷新
 		if author not in Authors_dict:
 			Authors_dict[author] = floor
+
+# 剔除樓主
+Authors_dict.pop(Host)
 
 # 整理資料
 Authors = [f + '-' + name for name, f in Authors_dict.items()]
@@ -140,7 +140,7 @@ while True:
 		break
 
 while True:
-	buffer = input("輸入數字重抽 輸入任意內容重抽 直接按Enter則結束...")
+	buffer = input("輸入數字以該數字重抽，輸入任意內容重抽，直接按Enter則結束...")
 	if buffer == '':
 		exit()
 	try:
