@@ -30,6 +30,7 @@ https://www.onlinegdb.com/online_python_compiler#</br>
 本來要寫多執行序 但requests好像是非線程安全的</br>
 線程好像會被鎖起來</br>
 開執行序還比直接跑慢</br>
+好像可以用多進程 但我不會= =</br>
 </br>
 另外 我是學店剛升大二的菜雞</br>
 主要是寫python 也不太會用這個github</br>
