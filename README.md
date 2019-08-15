@@ -23,6 +23,7 @@ https://www.onlinegdb.com/online_python_compiler#
 
 所以要在程式碼那邊改
 </br></br>
+</br></br>
 
 執行後會在exe檔目錄下產生
 
