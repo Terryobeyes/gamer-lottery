@@ -30,9 +30,14 @@ https://www.onlinegdb.com/online_python_compiler#
 
 題外話:
 本來要寫多執行序 但requests好像是非線程安全的
+
 線程好像會被鎖起來
+
 開執行序還比直接跑慢
 
+
 另外 我是學店剛升大二的菜雞
+
 主要是寫python 也不太會用這個github
+
 大家多多指教啦!
