@@ -22,7 +22,7 @@ https://www.onlinegdb.com/online_python_compiler#
 但輸入的部分 好像不能用貼上的
 
 所以要在程式碼那邊改
-</br>
+</br></br>
 
 執行後會在exe檔目錄下產生
 
