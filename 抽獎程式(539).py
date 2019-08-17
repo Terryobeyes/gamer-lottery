@@ -96,11 +96,32 @@ Authors = [f + '-' + name for name, f in Authors_dict.items()]
 Authors.sort(key=lambda s: int(s.split()[0]))
 
 # 印出名單
-print("以下為抽獎名單:")
+print("目前名單:")
 for a in Authors:
 	print(a)
 Authors_Len = len(Authors)
 print("共 %d 人\n" % Authors_Len)
+
+# 設定截止樓層
+while True:
+	number = input("請輸入截止樓層(該樓可抽 預設無截止):")
+	if number == '':
+		break
+	index = -1
+	for i in range(Authors_Len):  # 反過來找 通常比較快
+		if Authors[Authors_Len - 1 - i].split()[0] == number:
+			index = Authors_Len - 1 - i
+	if index == -1:  # 沒找到
+		print("樓層錯誤")
+	else:
+		Authors_Len = index + 1
+		Authors = Authors[:Authors_Len]
+		# 印出名單
+		print("抽獎名單:")
+		for a in Authors:
+			print(a)
+		print("共 %d 人\n" % Authors_Len)
+		break
 
 # 將名單保存成txt檔
 with open("抽獎名單.txt", 'w', encoding='UTF-8') as f:
