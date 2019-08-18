@@ -164,36 +164,26 @@ def get539():
 
 SEED = get539()
 
-# 開始抽獎
-while True:
-	try:
-		number = int(input("請輸入抽獎人數:"))
-		if number > Authors_Len or number < 1:
-			raise ValueError
-	except ValueError:
-		print("人數錯誤 請重新輸入")
-	else:
-		winners = []
-		# SEED % 人數 = 中獎者
-		for i in range(number):
-			winners.append(Authors.pop(SEED % Authors_Len))
-			Authors_Len -= 1
-			"""
-			種子範圍為 0 ~ 69090839 (39*38*37*36*35 - 1)
-			若人數無法整除 69090840 (2^3 * 3^3 * 5*7*13*19*37)
-			會導致樓層前面的人 抽到機率稍微高一點點
-			故這邊進行反轉
-			"""
-			Authors.reverse()
-		break
+# 印出抽獎順序
+order = []
+# SEED % 人數 = 中獎者
+for i in range(Authors_Len):
+	order.append(Authors.pop(SEED % (Authors_Len - i)))
+	"""
+	種子範圍為 0 ~ 69090839 (39*38*37*36*35 - 1)
+	若人數無法整除 69090840 (2^3 * 3^3 * 5*7*13*19*37)
+	會導致樓層前面的人 抽到機率稍微高一點點
+	故這邊進行反轉
+	"""
+	Authors.reverse()
 
-print("<<< 以下為中獎者 >>>\n")
+print("<<< 以下為中獎順序 >>>\n")
 with open("抽獎名單.txt", 'a', encoding='UTF-8') as file:
-	file.write("\n中獎者:\n")
-	# 取洗亂後的前n位 作為中獎者
-	for winner in sorted(winners, key=lambda s: int(s.split()[0])):
-		print(winner)
-		file.write(winner + '\n')
+	file.write("\n中獎順序:\n")
+	for i in range(Authors_Len):
+		output = "(%d) %s" % (i + 1, order[i])
+		print(output)
+		file.write(output + '\n')
 
 input("\n按Enter結束...")
 exit()
