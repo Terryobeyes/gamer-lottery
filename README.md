@@ -1,4 +1,5 @@
 # gamer-lottery
+<pre>
 <場外抽獎程式>
 這個是給場外人做抽獎的程式
 由於巴友可能重複發文
@@ -16,7 +17,7 @@ https://www.onlinegdb.com/online_python_compiler#
 執行後會在exe檔目錄下產生
 抽獎名單.txt 的檔案
 裡面會有抽獎名單 最後會有得獎者
-<pre>
+
 
 注意事項:
 1.抽獎人不含樓主(即使樓主在其他樓回覆)
