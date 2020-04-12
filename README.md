@@ -10,7 +10,9 @@
 大家可以下載exe檔 或
 把程式碼貼到線上編譯器上執行
 我自己是用這個網站
+</pre>
 https://www.onlinegdb.com/online_python_compiler#
+<pre>
 但輸入的部分 好像不能用貼上的
 所以要在程式碼那邊改
 程式碼前面幾行有說明
