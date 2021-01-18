@@ -32,29 +32,17 @@ while True:
         # 驗證網址
         home_req = requests.get(URL[:38] + '1' + URL[38:])
         home_soup = BeautifulSoup(home_req.text, "html.parser")
+
         # 取得文章頁數
-        code = home_soup.select("p a")[4].text
-        if code.isdigit():
-            code = int(code)
-            # 只有2頁會抓到 看板代碼(?) (場外是7533)
-            if code > 1000:  # 但如果是大於1000頁 會被判定為只有2頁
-                Last_Page = 2
-            elif code == 2:
-                Last_Page = 3
-            elif code == 1:
-                Last_Page = 4
-            else:
-                Last_Page = code
-        # 只有1頁會抓到 歡迎加入 或 Google Chrome
-        else:
-            Last_Page = 1
+        Total_Page = int(home_soup.select_one('.BH-pagebtnA > a:last-of-type').text)
+
         # 抓取樓主ID
         home_authors = home_soup.select("div.c-post__header__author a")
         Host = "%s(%s)" % (home_authors[1].text, home_authors[2].text)
 
     except ValueError:
         print("網址連接失敗")
-    except IndexError:
+    except (IndexError, AttributeError):
         print("網址錯誤 請重新輸入")
     except requests.exceptions.ConnectionError:
         print("連線問題")
@@ -74,7 +62,7 @@ for p in range(len(home_authors) // 3):
         Authors_dict[a] = f
 
 # 從第二頁開始 一頁一頁跑
-for page in range(2, Last_Page + 1):
+for page in range(2, Total_Page + 1):
     url = URL[:38] + str(page) + URL[38:]
     req = requests.get(url)
     soup = BeautifulSoup(req.text, "html.parser")
