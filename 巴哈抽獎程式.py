@@ -20,41 +20,28 @@ while True:
         (也可以把22行的U前面加上# 就不用按Enter了)
         """
         URL = input("請輸入網址:")
-        # URL = "網址打在引號裡面"
+        # URL = '網址打在引號裡面'
 
         # 修改網址 以利換頁
-        index = URL.find("page=")
+        index = URL.find('page=')
         if index == -1:
-            URL = URL[:33] + "page=&" + URL[33:]
+            URL = URL[:33] + 'page=&' + URL[33:]
         else:
             URL = URL[:38] + URL[URL[38:].index('&') + 38:]
-
         # 驗證網址
         home_req = requests.get(URL[:38] + '1' + URL[38:])
-        home_soup = BeautifulSoup(home_req.text, "html.parser")
+        home_soup = BeautifulSoup(home_req.text, 'html.parser')
+
         # 取得文章頁數
-        code = home_soup.select("p a")[4].text
-        if code.isdigit():
-            code = int(code)
-            # 只有2頁會抓到 看板代碼(?) (場外是7533)
-            if code > 1000:  # 但如果是大於1000頁 會被判定為只有2頁
-                Last_Page = 2
-            elif code == 2:
-                Last_Page = 3
-            elif code == 1:
-                Last_Page = 4
-            else:
-                Last_Page = code
-        # 只有1頁會抓到 歡迎加入 或 Google Chrome
-        else:
-            Last_Page = 1
+        Total_Page = int(home_soup.select_one('.BH-pagebtnA > a:last-of-type').text)
+
         # 抓取樓主ID
-        home_authors = home_soup.select("div.c-post__header__author a")
+        home_authors = home_soup.select('div.c-post__header__author a')
         Host = "%s(%s)" % (home_authors[1].text, home_authors[2].text)
 
     except ValueError:
         print("網址連接失敗")
-    except IndexError:
+    except (IndexError, AttributeError):
         print("網址錯誤 請重新輸入")
     except requests.exceptions.ConnectionError:
         print("連線問題")
@@ -74,11 +61,11 @@ for p in range(len(home_authors) // 3):
         Authors_dict[a] = f
 
 # 從第二頁開始 一頁一頁跑
-for page in range(2, Last_Page + 1):
+for page in range(2, Total_Page + 1):
     url = URL[:38] + str(page) + URL[38:]
     req = requests.get(url)
-    soup = BeautifulSoup(req.text, "html.parser")
-    authors = soup.select("div.c-post__header__author a")
+    soup = BeautifulSoup(req.text, 'html.parser')
+    authors = soup.select('div.c-post__header__author a')
     for i in range(len(authors) // 3):
         floor = authors[i * 3].text
         author = "%s(%s)" % (authors[i * 3 + 1].text, authors[i * 3 + 2].text)
@@ -102,6 +89,27 @@ for a in Authors:
     print(a)
 Authors_Len = len(Authors)
 print("共 %d 人" % Authors_Len)
+
+# 設定截止樓層
+while True:
+    number = input("請輸入截止樓層(該樓可抽 預設無截止):")
+    if number == '':
+        break
+    index = -1
+    for i in range(Authors_Len):  # 反過來找 通常比較快
+        if Authors[Authors_Len - 1 - i].split()[0] == number:
+            index = Authors_Len - 1 - i
+    if index == -1:  # 沒找到
+        print("樓層錯誤")
+    else:
+        Authors_Len = index + 1
+        Authors = Authors[:Authors_Len]
+        # 印出名單
+        print("抽獎名單:")
+        for a in Authors:
+            print(a)
+        print("共 %d 人\n" % Authors_Len)
+        break
 
 # 將名單保存成txt檔
 with open("抽獎名單.txt", 'w', encoding='UTF-8') as f:
