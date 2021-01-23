@@ -32,6 +32,9 @@ https://repl.it/languages/python3
 輸出順序在當期是固定的，並沒有其他的隨機影響
 因此更有公平性，可以多加利用
 
+2021/1/24
+由於爬蟲好像被巴哈擋了，所以加上headers
+
 2021/1/18
 參考 https://blog.jiatool.com/posts/gamer_commend_spider/
 獲取頁數的方法來修改我的程式碼
