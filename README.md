@@ -52,6 +52,6 @@
 3.相同的種子碼以及人數會給出相同的排序
 </pre>
 
-我是又爛又懶的學店準大四資工生:(
-有問題的話可以寄信到[我的巴哈小屋](https://home.gamer.com.tw/homeindex.php?owner=Terryobeyes)
-或是在github這邊丟丟看也行
+我是又爛又懶的學店準大四資工生:(<br>
+有問題的話可以寄信到[我的巴哈小屋](https://home.gamer.com.tw/homeindex.php?owner=Terryobeyes)<br>
+或是在github這邊丟丟看也行<br>
