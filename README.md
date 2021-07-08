@@ -7,7 +7,7 @@
 之前看到好像沒什麼人寫 就自己來寫= =
 
 執行後會在執行檔的目錄下產生「抽獎名單.txt」
-透過抓取今彩539的號碼做為種子，並給出中獎順序
+透過抓取最新一期的今彩539的號碼做為種子，並給出中獎順序
 </pre>
 
 <pre>
@@ -53,5 +53,6 @@
 </pre>
 
 我是又爛又懶的學店準大四資工生:(<br>
-有問題的話可以寄信到[我的巴哈小屋](https://home.gamer.com.tw/homeindex.php?owner=Terryobeyes)<br>
+有問題的話可以到[巴哈串](https://forum.gamer.com.tw/C.php?bsn=60076&snA=6448527&tnum=1)<br>
+或寄信到[我的巴哈小屋](https://home.gamer.com.tw/homeindex.php?owner=Terryobeyes)<br>
 或是在github這邊丟丟看也行<br>
