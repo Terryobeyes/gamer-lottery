@@ -53,6 +53,6 @@
 </pre>
 
 我是又爛又懶的學店準大四資工生:(<br>
-有問題的話可以到[巴哈串](https://forum.gamer.com.tw/C.php?bsn=60076&snA=6448527&tnum=1)<br>
+有問題的話可以到[巴哈串](https://forum.gamer.com.tw/C.php?bsn=60076&snA=6448527)<br>
 或寄信到[我的巴哈小屋](https://home.gamer.com.tw/homeindex.php?owner=Terryobeyes)<br>
 或是在github這邊丟丟看也行<br>
