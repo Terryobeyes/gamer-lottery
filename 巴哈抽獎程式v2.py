@@ -27,6 +27,7 @@ Deadline = ''
 
 
 def deal_message():
+    print("\n您要抽的是留言。")
     global Deadline
     req = requests.get(URL, headers=HEADERS)
     req.close()
@@ -79,11 +80,19 @@ def deal_message():
 
 
 def deal_reply():
+    print("\n您要抽的是回覆。")
     global URL, Authors
     # 修改網址 以利換頁
-    URL = URL[:33] + 'page=&' + URL[URL.find('bsn'):]
+    URL = URL[:34] + 'page=&' + URL[URL.find('bsn'):]
+    URL = URL[:39] + '1' + URL[38:]
+    if '&go' in URL:
+        URL = URL[:URL.rfind('&go')]
+    if '#' in URL:
+        URL = URL[:URL.rfind('#')]
+
+    print("自動調整後的網址:", URL)
     # 驗證網址
-    home_req = requests.get(URL[:38] + '1' + URL[38:], headers=HEADERS)
+    home_req = requests.get(URL, headers=HEADERS)
     home_soup = BeautifulSoup(home_req.text, 'html.parser')
 
     # 取得文章頁數
@@ -104,7 +113,7 @@ def deal_reply():
         if a not in authors_dict:
             authors_dict[a] = f
 
-    print("抓取中，請稍後...")
+    print("\n抓取中，請稍後...")
     # 從第二頁開始 一頁一頁跑
     for page in range(2, total_page + 1):
         url = URL[:38] + str(page) + URL[38:]
