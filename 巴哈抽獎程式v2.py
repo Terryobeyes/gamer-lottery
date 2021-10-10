@@ -89,6 +89,7 @@ def deal_reply():
         URL = URL[:URL.rfind('&go')]
     if '#' in URL:
         URL = URL[:URL.rfind('#')]
+    URL = URL.replace('=&', '&')
 
     print("自動調整後的網址:", URL)
     # 驗證網址
