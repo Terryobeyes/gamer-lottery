@@ -83,13 +83,12 @@ def deal_reply():
     print("\n您要抽的是回覆。")
     global URL, Authors
     # 修改網址 以利換頁
-    URL = URL[:34] + 'page=&' + URL[URL.find('bsn'):]
-    URL = URL[:39] + '1' + URL[38:]
+    URL = URL[:33] + 'page=&' + URL[URL.find('bsn'):]
+    URL = URL[:38] + '1' + URL[38:]
     if '&go' in URL:
         URL = URL[:URL.rfind('&go')]
     if '#' in URL:
         URL = URL[:URL.rfind('#')]
-    URL = URL.replace('=&', '&')
 
     print("自動調整後的網址:", URL)
     # 驗證網址
@@ -117,7 +116,7 @@ def deal_reply():
     print("\n抓取中，請稍後...")
     # 從第二頁開始 一頁一頁跑
     for page in range(2, total_page + 1):
-        url = URL[:38] + str(page) + URL[38:]
+        url = URL[:38] + str(page) + URL[39:]
         req = requests.get(url, headers=HEADERS)
         soup = BeautifulSoup(req.text, 'html.parser')
         Authors = soup.select('div.c-post__header__author a')
