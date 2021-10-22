@@ -83,12 +83,18 @@ def deal_reply():
     print("\n您要抽的是回覆。")
     global URL, Authors
     # 修改網址 以利換頁
-    URL = URL[:33] + 'page=&' + URL[URL.find('bsn'):]
-    URL = URL[:38] + '1' + URL[38:]
-    if '&go' in URL:
-        URL = URL[:URL.rfind('&go')]
-    if '#' in URL:
-        URL = URL[:URL.rfind('#')]
+    bsn_idx1 = URL.find('bsn=') + 4
+    bsn_idx2 = bsn_idx1 + URL[bsn_idx1:].find('&')
+    sna_idx1 = URL.find('snA=') + 4
+    sna_idx2 = URL[sna_idx1:].find('&')
+    if sna_idx2 == -1:
+        sna_idx2 = None
+    else:
+        sna_idx2 += sna_idx1
+
+    bsn = URL[bsn_idx1:bsn_idx2]
+    sna = URL[sna_idx1:sna_idx2]
+    URL = URL[:33] + f'page=1&bsn={bsn}&snA={sna}'
 
     print("自動調整後的網址:", URL)
     # 驗證網址
